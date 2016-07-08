@@ -15,7 +15,7 @@ var Letter = function(let) {
 	//make a letterRender property and set it to a function that does what you think makes sense
 	this.letterRender = function(){
 		if(this.appear == true){
-			return charac;
+			return this.charac;
 		}
 		else{
 			return "_ ";

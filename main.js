@@ -13,6 +13,7 @@ prompt.start();
 game = {
 	wordBank : ["heart and soul", "relax", "burning up", "manic monday", "into the groove", "invisible.touch", "rebel yell"],
 	wordsWon : 0,
+	userGuesses: [],
 	guessesRemaining : 10, //per word
 	currentWrd : null, //the word object
 	startGame : function (wrd){
@@ -29,6 +30,7 @@ game = {
 	}, 
 	resetGuessesRemaining : function(){
 		this.guessRemaining = 10;
+		this.userGuesses = [];
 	},
 	keepPromptingUser : function(){
 		var self = this;
@@ -38,6 +40,7 @@ game = {
 		    //console.log(result);
 		    
 		    console.log('  The letter or space you guessed is: ' + result.guessLetter);
+		    game.userGuesses.push(result.guessLetter);
 
 		    //this checks if the letter was found and if it is then it sets that specific letter in the word to be found
 		    var findHowManyOfUserGuess = self.currentWrd.checkIfLetterFound(result.guessLetter);
@@ -58,7 +61,7 @@ game = {
 		    
 		    console.log('Guesses remaining: ', self.guessesRemaining);
 		    console.log(self.currentWrd.wordRender());
-		    console.log('here are the letters you guessed already: ');
+		    console.log('here are the letters you guessed already: '+ game.userGuesses);
 
 		    if ((self.guessesRemaining > 0) && (self.currentWrd.found == false)){
 		    	self.keepPromptingUser();

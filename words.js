@@ -24,12 +24,20 @@ var Word = function(wrd){
 	//returns true or false whether we found the current word or not
 	this.didWeFindTheWord = function() {
 		//set the found property to true or false based on whether all the letters have been found or not
-		// if(){
-		// 	this.found = true;
-		// }
-		// else{
-		// 	this.found = false;
-		// }
+		 var counter = 0;
+		 for(var i = 0; i<this.lets.length; i++){
+		 	if (this.lets[i].appear == true){
+		 		counter++;
+		 	}
+		 }
+
+		 if(counter == this.lets.length){
+		 	this.found = true;
+		 }
+
+		 else{
+		 	this.found = false;
+		}
 		//return the found property
 		return this.found;
 	};
@@ -39,13 +47,13 @@ var Word = function(wrd){
 		var whatToReturn = 0;
 		//loop over the lets property and if the letter object's charac property equals the guessletter then set the appear property of the letter object to be true. Also increment whatToReturn.
 		for (var i = 0; i<this.lets.length; i++){
-			if(this.lets[i].charac = guessLetter){
+			if(this.lets[i].charac == guessLetter){
 				//set appear property of letter object to be true. Wtf does that mean...
 				whatToReturn++;
-				this.appear = true;
+				this.lets[i].appear = true;
 			}
 		}
-		return whatToReturn
+		return whatToReturn;
 	};
 
 	this.wordRender = function() {
