@@ -1,9 +1,9 @@
 //main.js is where the game is played and contains all of the user-input.
 //The application should end when a player successfully guesses a word or runs out of guesses.
 
-var Word = require('word.js');
-var game = require('game.js');
-var letter = require('letter.js');
+var Word = require('./words.js');
+//var game = require('./game.js');
+//var letter = require('./letter.js');
 
 var prompt = require('prompt');
 
@@ -11,7 +11,7 @@ var prompt = require('prompt');
 prompt.start();
 
 game = {
-	wordBank : ["heart and soul", "relax", "burning up", "manic monday", "into the groove", "invisible touch", "rebel yell"],
+	wordBank : ["heart and soul", "relax", "burning up", "manic monday", "into the groove", "invisible.touch", "rebel yell"],
 	wordsWon : 0,
 	guessesRemaining : 10, //per word
 	currentWrd : null, //the word object
